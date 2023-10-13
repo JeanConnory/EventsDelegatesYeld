@@ -66,44 +66,62 @@
 
 #region Predicate
 
-bool resultado;
-//resultado = DeterminaNumeroPar(2);
+//bool resultado;
+////resultado = DeterminaNumeroPar(2);
 
-Predicate<int> p;
-p = DeterminaNumeroPar;
-//resultado = p(2);
-//Console.WriteLine($"Resultado: {resultado}");
+//Predicate<int> p;
+//p = DeterminaNumeroPar;
+////resultado = p(2);
+////Console.WriteLine($"Resultado: {resultado}");
 
-List<int> listaCompleta = new List<int>
+//List<int> listaCompleta = new List<int>
+//{
+//    10,
+//    11,
+//    12,
+//    13,
+//    14,
+//    15
+//};
+
+//List<int> listaDosPares = new List<int>();
+//listaDosPares = listaCompleta.FindAll(p);
+
+//ImprimeLista(listaDosPares);
+
+//static bool DeterminaNumeroPar(int num)
+//{
+//    return num % 2 == 0;
+//}
+
+//static void ImprimeLista(List<int> lista)
+//{
+//    for (int i = 0; i < lista.Count; i++)
+//    {
+//        Console.WriteLine(lista[i]);
+//    }
+//}
+
+////delegate bool Predicate(int num);
+
+////delegate bool Predicate<in T>(T num); Já existe um Predicate padrão
+
+#endregion
+
+#region Action
+
+Action<int, int> p;
+p = CalculaMedia;
+p(3, 7);
+
+
+static void CalculaMedia(int p1, int p2)
 {
-    10,
-    11,
-    12,
-    13,
-    14,
-    15
-};
-
-List<int> listaDosPares = new List<int>();
-listaDosPares = listaCompleta.FindAll(p);
-
-ImprimeLista(listaDosPares);
-
-static bool DeterminaNumeroPar(int num)
-{
-    return num % 2 == 0;
+    int media;
+    media = (p1 + p2) / 2;
+    Console.WriteLine(media);
 }
 
-static void ImprimeLista(List<int> lista)
-{
-    for (int i = 0; i < lista.Count; i++)
-    {
-        Console.WriteLine(lista[i]);
-    }
-}
-
-//delegate bool Predicate(int num);
-
-//delegate bool Predicate<in T>(T num); Já existe um Predicate padrão
+//delegate void Action<in T1, in T2>(T1 a, T2 b); //Usando Action Generic e Action já existe na linguagem
 
 #endregion
