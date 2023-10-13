@@ -1,29 +1,65 @@
 ﻿
-int resultado;
-//resultado = CalculaMedia(2, 6);
+#region Delegate
 
-//Funcao funcao = new Funcao(CalculaMedia);
-Funcao funcao = CalculaMedia; //Mais simples, só chamando a função direto
+//int resultado;
+////resultado = CalculaMedia(2, 6);
 
-resultado = funcao(8, 4);
-Console.WriteLine($"Média: {resultado}");
+////Funcao funcao = new Funcao(CalculaMedia);
+//Funcao funcao = CalculaMedia; //Mais simples, só chamando a função direto
 
-funcao = CalculaMultiplicacao;
-resultado = funcao(4, 6);
-Console.WriteLine($"Multiplicação: {resultado}");
+//resultado = funcao(8, 4);
+//Console.WriteLine($"Média: {resultado}");
 
-static int CalculaMedia(int p1, int p2)
+//funcao = CalculaMultiplicacao;
+//resultado = funcao(4, 6);
+//Console.WriteLine($"Multiplicação: {resultado}");
+
+//static int CalculaMedia(int p1, int p2)
+//{
+//    int media;
+//    media = (p1 + p2) / 2;
+//    return media;
+//}
+
+//static int CalculaMultiplicacao(int p1, int p2)
+//{
+//    int mult;
+//    mult = p1 * p2;
+//    return mult;
+//}
+
+//delegate int Funcao(int a, int b);
+
+#endregion
+
+#region Func
+
+float media;
+//media = CalculaMedia(3, 5);
+
+defFuncDelegate f;
+f = CalculaMedia;
+media = f(8, 10);
+
+defFuncDelegateGenerico<int, int, float> f1;
+f1 = CalculaMedia;
+media = f1(5, 9);
+
+Func<int, int, float> f2; //Forma mais fácil e padrão de usar
+f2 = CalculaMedia;
+media = f2(6, 4);
+
+Console.WriteLine($"Média: {media}");
+
+static float CalculaMedia(int p1, int p2)
 {
     int media;
     media = (p1 + p2) / 2;
     return media;
 }
 
-static int CalculaMultiplicacao(int p1, int p2)
-{
-    int mult;
-    mult = p1 * p2;
-    return mult;
-}
+delegate float defFuncDelegate(int p1, int p2);
 
-delegate int Funcao(int a, int b);
+delegate TResult defFuncDelegateGenerico<in T1, in T2, out TResult>(T1 p1, T2 p2);
+
+#endregion
